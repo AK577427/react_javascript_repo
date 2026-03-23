@@ -10,7 +10,7 @@ export default function useFundraisers(){
 
     useEffect(()=>{
         getFundraisers()
-            .then(fundraisers=>{
+            .then((fundraisers)=>{
                 setFundraisers(fundraisers);
                 setIsLoading(false);
 

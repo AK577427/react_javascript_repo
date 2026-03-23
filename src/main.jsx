@@ -18,6 +18,7 @@ import FundraiserPage from "./pages/FundraiserPage"
 
 import NavBar from "./compenents/NavBar"
 import App from "../../todo-list/src/App";
+import LoginPage from "./pages/LoginPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,9 @@ const router = createBrowserRouter([
     children:[
       {
         path: "/", element: <HomePage/>
+      },
+      {
+        path: "/login", element: <LoginPage/>
       },
       {
         path: "/fundraiser/:id",element:<FundraiserPage/>

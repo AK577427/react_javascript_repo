@@ -5,7 +5,17 @@ import './HomePage.css'
 
 function HomePage() {
 
-const {fundraisers} = useFundraisers();
+const {fundraisers} = useFundraisers()
+    // const {fundraisers, isLoading, error} = useFundraisers();
+
+    
+    // if(isLoading){
+    //     return(<p>loading......</p>);
+    // }
+
+    // if(error) {
+    //     return(<p>{error.message}</p>)
+    // }
 
     return (
         <div id="fundraiser-list">

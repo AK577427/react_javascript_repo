@@ -21,5 +21,5 @@ export default function useFundraiser(fundraiserId){
         //This time we pass the fundraiserId to the dependency array so that the hook will re-run if the fundraiserId changes.
     }, [fundraiserId]);
 
-    return [fundraiser, isLoading, error]
+    return {fundraiser, isLoading, error}
 }

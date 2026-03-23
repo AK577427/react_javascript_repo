@@ -8,8 +8,7 @@ function FundraiserPage() {
     const {id} = useParams();
     //useFundraiser returns three pieces of info, so we need to grab them all here
     const {fundraiser, isLoading, error} = useFundraiser(id)
-    console.log(isLoading)
-
+    
     if(isLoading){
         return(<p>loading......</p>);
     }
