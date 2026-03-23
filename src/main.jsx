@@ -19,6 +19,8 @@ import FundraiserPage from "./pages/FundraiserPage"
 import NavBar from "./compenents/NavBar"
 import App from "../../todo-list/src/App";
 import LoginPage from "./pages/LoginPage";
+import CreateUserPage from "./pages/CreateUserPage"
+
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/login", element: <LoginPage/>
+      },
+      {
+        path: "/register", element: <CreateUserPage/>
       },
       {
         path: "/fundraiser/:id",element:<FundraiserPage/>
