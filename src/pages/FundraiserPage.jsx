@@ -32,6 +32,7 @@ function FundraiserPage() {
                     );
                 })}
             </ul>
+            <button>Make a Pledge</button>
         </div>
     );
 };

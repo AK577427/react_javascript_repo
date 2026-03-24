@@ -11,7 +11,7 @@
 // )
 import React from "react";
 import ReactDom from "react-dom/client";
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import { createBrowserRouter,Navigate,RouterProvider } from "react-router-dom";
 
 import HomePage from "./pages/HomePage"
 import FundraiserPage from "./pages/FundraiserPage"
@@ -20,12 +20,17 @@ import NavBar from "./compenents/NavBar"
 import App from "../../todo-list/src/App";
 import LoginPage from "./pages/LoginPage";
 import CreateUserPage from "./pages/CreateUserPage"
+import CreateFundraiserForm from "./compenents/CreateFundraiserForm";
+import CreateFundraiserPage from "./pages/CreateFundraiserPage";
+
+const isLoggedIn = Boolean(window.localStorage.getItem("token"));
+// console.log(isLoggedIn);
 
 
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <NavBar/>,
+    element: <NavBar isLoggedIn={isLoggedIn}/>,
     children:[
       {
         path: "/", element: <HomePage/>
@@ -35,6 +40,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/register", element: <CreateUserPage/>
+      },
+            {
+        path: "/create-fundraiser", element:  isLoggedIn? <CreateFundraiserPage/> : <LoginPage/>
+        // element: isLoggedIn? <CreateFundraiserPage/> : <Navigate to="/login" replace/> //Navigate to="/login"
       },
       {
         path: "/fundraiser/:id",element:<FundraiserPage/>

@@ -8,6 +8,7 @@ function NavBar(){
                 <Link to="/">Home</Link>
                 <Link to="/login">Log in</Link>
                 <Link to="/register">Register</Link>
+                <Link to="/create-fundraiser">Create Fundraiser</Link>
             </nav>
             <Outlet/>
         </div>

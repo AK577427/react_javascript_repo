@@ -12,7 +12,7 @@ function FundraiserCard(props){
             <img src={fundraiserData.image} alt="image"/>
             <h3>{fundraiserData.title}</h3>
             <button>Make a Pledge</button>
-            <button>Details</button>
+            <button>View Details</button>
             </Link>
         </div>
        );
