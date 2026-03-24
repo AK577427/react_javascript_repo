@@ -17,7 +17,6 @@ import HomePage from "./pages/HomePage"
 import FundraiserPage from "./pages/FundraiserPage"
 
 import NavBar from "./compenents/NavBar"
-import App from "../../todo-list/src/App";
 import LoginPage from "./pages/LoginPage";
 import CreateUserPage from "./pages/CreateUserPage"
 import CreateFundraiserForm from "./compenents/CreateFundraiserForm";
