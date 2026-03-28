@@ -1,18 +1,19 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import postCreateFundraiser from "../api/post-create-fundraiser";
 
 function CreateFundraiserForm(){
     const navigate = useNavigate();
-    // return<h1>This is the Login Page!</h1>
+    // const [token, setToken] = useState(() => window.localStorage.getItem("token"));
+    // const token = window.localStorage.getItem("token");
     const [credentials, setCredentials] = useState({
-            "title": "",
-            "description": "",
-            "goal": "",
-            "image":"",
-            "is_open": "",
-    })
+            title: "",
+            description: "",
+            goal: "",
+            image: "",
+            is_open: false
+    });
 
     const handleChange = (event)=>{
         const {id, value} = event.target;
@@ -46,7 +47,7 @@ function CreateFundraiserForm(){
 
     return(
         <form>
-            <div>
+           <div>
                 <label htmlFor="title">Title:</label>
                 <input 
                     type="text" 

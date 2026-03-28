@@ -1,8 +1,8 @@
-async function postCreateFundraiser(title,description,goal,image,is_open) {
+async function postCreateFundraiser(title,description,goal,image,is_open,token) {
     const url = `${import.meta.env.VITE_API_URL}/fundraisers/`;
 
-    const token = window.localStorage.getItem("token");
-    console.log("Token:", token);  // Check if present
+    // const token = window.localStorage.getItem("token");
+    // console.log("Token:", token);  // Check if present
 
     if (!token) {
         throw new Error("No authentication token found. Please log in.");

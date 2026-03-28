@@ -1,15 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import postLogin from "../api/post-login";
+import postCreateUser from "../api/post-create-user";
 
-function LoginForm(){
+
+function CreateUserForm(){
     const navigate = useNavigate();
+    const [token, setToken] = useState(null);
+
     // return<h1>This is the Login Page!</h1>
     const [credentials, setCredentials] = useState({
         username: "",
+        email: "",
         password: "",
     })
+
+    useState(() => {
+    const storedToken = window.localStorage.getItem("token");
+    setToken(storedToken);
+    }, []);
 
     const handleChange = (event)=>{
         const {id, value} = event.target;
@@ -22,13 +31,17 @@ function LoginForm(){
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        if(credentials.username && credentials.password){
-            postLogin(
+        console.log("I m trying debug", credentials);
+        if(credentials.username && credentials.email && credentials.password){
+            postCreateUser(
             credentials.username,
+            credentials.email,
             credentials.password
             ).then((response)=>{
                 window.localStorage.setItem("token", response.token);
-                navigate("/")
+                navigate("/");
+            }).catch((error)=>{
+                console.error("Error creating user:", error);
             })
         }
     }
@@ -45,6 +58,15 @@ function LoginForm(){
                 />
             </div>
             <div>
+                <label htmlFor="email">Email:</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Email"
+                    onChange={handleChange}                
+                />
+            </div>
+            <div>
                 <label htmlFor="password">Password:</label>
                 <input 
                     type="password" 
@@ -54,10 +76,10 @@ function LoginForm(){
                 />
             </div>
             <button type="submit" onClick={handleSubmit}>
-                Login
+                Register
             </button>
         </form>
     )
 }
 
-export default LoginForm;
+export default CreateUserForm;

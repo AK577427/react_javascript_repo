@@ -1,8 +1,8 @@
-import LoginForm from  "../compenents/LoginForm";
+import LoginForm from  "../components/LoginForm";
 
-function LoginPage(){
+function LoginPage(props){
     // return<h1>This is the Login Page!</h1>
-    return <LoginForm/>
+    return <LoginForm showalert={props.showalert}/>
 }
 
 export default LoginPage;
