@@ -1,8 +1,18 @@
-import CreateFundraiserForm from  "../compenents/CreateFundraiserForm";
+import CreateFundraiserForm from  "../components/CreateFundraiserForm";
+import { useAuth } from "../hooks/use-auth";
+import LoginPage from "./LoginPage";
+
 
 function CreateFundraiserPage(){
-    // return<h1>This is the Login Page!</h1>
-    return <CreateFundraiserForm/>
+    const {auth, setAuth} = useAuth();  
+
+
+
+    // (window.localStorage.getItem("token"))? <CreateFundraiserPage/> : <LoginPage showalert={true}/>
+    return(
+        auth.token ? <CreateFundraiserForm/> : <LoginPage showalert={true}/>
+    )
+    //  <CreateFundraiserForm/>
 }
 
 export default CreateFundraiserPage;

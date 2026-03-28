@@ -1,6 +1,6 @@
 // import { allFundraisers } from "../data";
 import useFundraisers from "../hooks/use-fundraisers";
-import FundraiserCard from "../compenents/FundraiserCard"
+import FundraiserCard from "../components/FundraiserCard"
 import './HomePage.css'
 
 function HomePage() {

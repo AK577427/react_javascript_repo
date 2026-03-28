@@ -1,14 +1,4 @@
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import './index.css'
-// import App from './App.jsx'
-// import { createBrowserRouter } from 'react-router-dom'
 
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
 import React from "react";
 import ReactDom from "react-dom/client";
 import { createBrowserRouter,Navigate,RouterProvider } from "react-router-dom";
@@ -16,20 +6,23 @@ import { createBrowserRouter,Navigate,RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage"
 import FundraiserPage from "./pages/FundraiserPage"
 
-import NavBar from "./compenents/NavBar"
+import NavBar from "./components/NavBar"
 import LoginPage from "./pages/LoginPage";
 import CreateUserPage from "./pages/CreateUserPage"
-import CreateFundraiserForm from "./compenents/CreateFundraiserForm";
-import CreateFundraiserPage from "./pages/CreateFundraiserPage";
+import CreateFundraiserForm from "./components/CreateFundraiserForm";
+import CreateFundraiserPage from "./pages/CreateFundraiserPage";  
+import LogoutPage from "./pages/LogoutPage";
+import LoginForm from "./components/LoginForm";
+import { AuthProvider } from "./components/AuthProvider.jsx";
 
-const isLoggedIn = Boolean(window.localStorage.getItem("token"));
+// const isLoggedIn = Boolean(window.localStorage.getItem("token"));
 // console.log(isLoggedIn);
 
 
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <NavBar isLoggedIn={isLoggedIn}/>,
+    element: <NavBar/>,
     children:[
       {
         path: "/", element: <HomePage/>
@@ -40,12 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/register", element: <CreateUserPage/>
       },
-            {
-        path: "/create-fundraiser", element:  isLoggedIn? <CreateFundraiserPage/> : <LoginPage/>
-        // element: isLoggedIn? <CreateFundraiserPage/> : <Navigate to="/login" replace/> //Navigate to="/login"
+      {
+        path: "/create-fundraiser", element: <CreateFundraiserPage/>
       },
       {
         path: "/fundraiser/:id",element:<FundraiserPage/>
+      },
+      {
+        path: "/logout", element: <LogoutPage/>
       },
     ]
   }
@@ -54,7 +49,9 @@ const router = createBrowserRouter([
 
 ReactDom.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <AuthProvider>
+      <RouterProvider router={router}/>
+    </AuthProvider>
   </React.StrictMode>
 );
 

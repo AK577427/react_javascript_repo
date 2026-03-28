@@ -1,4 +1,4 @@
-import CreateUserForm from  "../compenents/CreateUserForm";
+import CreateUserForm from  "../components/CreateUserForm";
 
 function CreateUserPage(){
     // return<h1>This is the Login Page!</h1>
