@@ -4,7 +4,7 @@ import LoginPage from "./LoginPage";
 
 
 function CreateFundraiserPage(){
-    const {auth, setAuth} = useAuth();  
+    const {auth} = useAuth();  
 
 
 

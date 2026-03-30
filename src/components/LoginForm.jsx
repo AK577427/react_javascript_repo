@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useAuth} from "../hooks/use-auth.js"
-
+import { useAuth } from "../hooks/use-auth.js";
 import postLogin from "../api/post-login.js";
 
 function LoginForm(props){
     const navigate = useNavigate();
-    const {auth, setAuth} = useAuth();
-    // return<h1>This is the Login Page!</h1>
+    const { setAuth } = useAuth();
+    const [error, setError] = useState(null);
+
+    // Display error message if it exists
+    // {setError && <p className="form-error">{setError}</p>}
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
@@ -24,6 +26,11 @@ function LoginForm(props){
 
     const handleSubmit = (event)=>{
         event.preventDefault();
+        setError(null); // Clear previous error messages
+        if (!credentials.username || !credentials.password) {
+            setError("Enter username and password");
+            return;
+        }
         if(credentials.username && credentials.password){
             postLogin(
             credentials.username,
@@ -37,13 +44,14 @@ function LoginForm(props){
                     navigate("/")
                 }
             }).catch(()=>{
-               alert("Login failed. Please check your username and password and try again.");
+                setError("Login failed. Please check your username and password and try again.");
             })
         }
     }
 
     return(
         <form>
+            {error && <p style={{ color: "red" }}>{error}</p>}
             {props.showalert && <p>Please log in to create a new fundraiser</p>}
             <div>
                 <label htmlFor="username">Username:</label>

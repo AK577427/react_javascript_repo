@@ -4,8 +4,8 @@ import postCreateFundraiser from "../api/post-create-fundraiser";
 
 function CreateFundraiserForm(){
     const navigate = useNavigate();
-    const [token, setToken] = useState(() => window.localStorage.getItem("token"));
-    // const token = window.localStorage.getItem("token");
+    const [token] = useState(() => window.localStorage.getItem("token"));
+    const [error, setError] = useState(null);
     const [credentials, setCredentials] = useState({
             title: "",
             description: "",
@@ -13,7 +13,7 @@ function CreateFundraiserForm(){
             image: "",
             is_open: false
     });
-    const [error, setError] = useState(null);
+
 
     useEffect(() => {
     if (!token) {
@@ -68,6 +68,7 @@ function CreateFundraiserForm(){
     return(
         <div className="create-fundraiser">
             <h2>Create Fundraiser</h2>
+            {/* {error && <p className="form-error">{error}</p>} */}
             {error && <p style={{ color: "red" }}>{error}</p>}
         <form>
            <div>
