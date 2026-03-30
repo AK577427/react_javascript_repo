@@ -1,6 +1,7 @@
-// import { oneFundraiser } from "../data";
 import {useParams} from "react-router-dom"
 import useFundraiser from "../hooks/use-fundraiser";
+import CreatePledgeForm from "../components/CreatePledgeForm";
+import { useState } from "react";
 
 
 function FundraiserPage() {
@@ -8,6 +9,7 @@ function FundraiserPage() {
     const {id} = useParams();
     //useFundraiser returns three pieces of info, so we need to grab them all here
     const {fundraiser, isLoading, error} = useFundraiser(id)
+    const [showPledgeForm, setShowPledgeForm] = useState(false);
     
     if(isLoading){
         return(<p>loading......</p>);
@@ -16,6 +18,11 @@ function FundraiserPage() {
     if(error) {
         return(<p>{error.message}</p>)
     }
+
+    const handlePledgeSuccess = () => {
+        setShowPledgeForm(false);
+        // Optionally refresh fundraiser data here
+    };
 
     return (
         <div>
@@ -32,7 +39,14 @@ function FundraiserPage() {
                     );
                 })}
             </ul>
-            <button>Make a Pledge</button>
+            {!showPledgeForm ? (
+                <button onClick={() => setShowPledgeForm(true)}>Make a Pledge</button>
+            ) : (
+                <div>
+                    <CreatePledgeForm fundraiserId={id} onPledgeSuccess={handlePledgeSuccess} />
+                    <button onClick={() => setShowPledgeForm(false)}>Cancel</button>
+                </div>
+            )}
         </div>
     );
 };
