@@ -14,6 +14,7 @@ import CreateFundraiserPage from "./pages/CreateFundraiserPage";
 import LogoutPage from "./pages/LogoutPage";
 import LoginForm from "./components/LoginForm";
 import { AuthProvider } from "./components/AuthProvider.jsx";
+import PledgePage from "./pages/PledgePage";
 
 // const isLoggedIn = Boolean(window.localStorage.getItem("token"));
 // console.log(isLoggedIn);

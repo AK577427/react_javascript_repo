@@ -46,7 +46,10 @@ function FundraiserPage() {
                     <CreatePledgeForm fundraiserId={id} onPledgeSuccess={handlePledgeSuccess} />
                     <button onClick={() => setShowPledgeForm(false)}>Cancel</button>
                 </div>
-            )}
+            )} 
+            {/* <Link to={`/pledge/:${id}`}>
+                <button>Make a Pledge</button>
+            </Link> */}
         </div>
     );
 };

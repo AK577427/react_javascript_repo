@@ -9,13 +9,13 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
     const [pledgeData, setPledgeData] = useState({
             amount: "",
             comment: "",
-            anonymous: false,
+            anonymous: "",
             fundraiser: fundraiserId
     });
 
     const handleChange = (event) => {
-    const { id, value } = event.target;
-    setPledgeData((prev) => ({ ...prev, [id]: value }));
+    const { id, value, type, checked } = event.target;
+    setPledgeData((prev) => ({ ...prev, [id]: type === "checkbox" ? checked : value }));
     };
 
     const handleSubmit = (event) => {
@@ -29,6 +29,40 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
       return;
     }
 
+    const cardNumber = pledgeData.cardNumber?.replace(/\s/g, "");
+    if (!cardNumber) {
+        setError("Card number is required");
+        setPledgeData(prev => ({ ...prev, cardNumber: "" }));
+        setLoading(false);
+    return;
+    }
+    else if (!/^\d+$/.test(cardNumber)) {
+        setError("Card number must contain only digits");
+        setPledgeData(prev => ({ ...prev, cardNumber: "" }));
+        setLoading(false);
+        return;
+    }
+    else if (cardNumber.length < 13 || cardNumber.length > 19) {
+        setError("Card number must be between 13 and 19 digits");
+        setPledgeData(prev => ({ ...prev, cardNumber: "" }));
+        setLoading(false);
+        return;
+    }
+    
+    if (!/^\d{2}\/\d{2}$/.test(pledgeData.expiry)) {
+        setError("Expiry must be in MM/YY format");
+        setPledgeData(prev => ({ ...prev, expiry: "" }));
+        setLoading(false);  
+        return;
+    }
+
+    if (!/^\d{3,4}$/.test(pledgeData.cvv)) {
+        setError("CVV must be 3 or 4 digits");
+        setPledgeData(prev => ({ ...prev, cvv: "" }));
+        setLoading(false);
+        return;
+    }
+
     postCreatePledge(fundraiserId, pledgeData)
     .then((response) => {
         console.log("Pledge created successfully:", response);
@@ -39,6 +73,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
             fundraiser: fundraiserId
         });
         if (onPledgeSuccess) onPledgeSuccess(response);
+        // navigate(`/fundraiser/${fundraiserId}`, { replace: true });
         navigate(`/fundraiser/${fundraiserId}`);
     })
     .catch((error) => {
@@ -49,6 +84,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
         setLoading(false);
     });     
     };
+
     return(
         <form>
         {/* // <div className="create-pledge"> */}
@@ -70,6 +106,36 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
                     id="comment"
                     value={pledgeData.comment}
                     placeholder="Optional comment" 
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="cardNumber">Card Number:</label>
+                <input
+                    type="text"
+                    id="cardNumber"
+                    placeholder="1234 5678 9012 3456"
+                    maxLength="19"
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="expiry">Expiry Date:</label>
+                <input
+                    type="text"
+                    id="expiry"
+                    placeholder="MM/YY"
+                    maxLength="5"
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="cvv">CVV:</label>
+                <input
+                    type="text"                    
+                    id="cvv"
+                    placeholder="123"
+                    maxLength="4"
                     onChange={handleChange}
                 />
             </div>
