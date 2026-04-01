@@ -70,8 +70,7 @@ function CreateFundraiserForm(){
         <div className="form-page">
         <div className="form-container">
             <h2>Create Fundraiser</h2>
-            {/* {error && <p className="form-error">{error}</p>} */}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="form-error">{error}</p>}
         <form>
            <div>
                 <label htmlFor="title">Title:*</label>

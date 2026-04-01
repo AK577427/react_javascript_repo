@@ -9,7 +9,7 @@
 
 /* LEFT SIDE */
 .card-content {
-    flex: 2;
+    flex: 1;
     background: #ceddfa;
   border-radius: 16px;
   overflow: hidden;
@@ -22,7 +22,7 @@
 
 /* RIGHT SIDE */
 .pledge-form {
-    flex: 1;
+    flex: 2;
   max-width: 400px; 
   min-width: 320px;
   /* padding: 20px; */

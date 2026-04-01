@@ -55,10 +55,10 @@ function LoginForm(props){
         <div className="form-container">
         <h2>Login</h2>
         <form>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="form-error">{error}</p>}            
             {props.showalert && <p>Please log in to create a new fundraiser</p>}
             <div>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">Username*:</label>
                 <input 
                     type="text" 
                     id="username" 
@@ -67,7 +67,7 @@ function LoginForm(props){
                 />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Password*:</label>
                 <input 
                     type="password" 
                     id="password" 

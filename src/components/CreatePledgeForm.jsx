@@ -97,8 +97,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
         <div className="form-container">
         <form>
             <h2 >Make a Pledge</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <div>
+                {error && <p className="form-error">{error}</p>}            <div>
                 <label htmlFor="amount">Amount:*</label>
                 <input
                     type="number"
@@ -109,7 +108,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
                 />
             </div>
             <div>
-                <label htmlFor="cardNumber">Card Number:</label>
+                <label htmlFor="cardNumber">Card Number:*</label>
                 <input
                     type="text"
                     id="cardNumber"
@@ -119,7 +118,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
                 />
             </div>
             <div>
-                <label htmlFor="expiry">Expiry Date:</label>
+                <label htmlFor="expiry">Expiry Date:*</label>
                 <input
                     type="text"
                     id="expiry"
@@ -129,7 +128,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
                 />
             </div>
             <div>
-                <label htmlFor="cvv">CVV:</label>
+                <label htmlFor="cvv">CVV:*</label>
                 <input
                     type="text"                    
                     id="cvv"

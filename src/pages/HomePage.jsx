@@ -1,22 +1,20 @@
 // import { allFundraisers } from "../data";
 import useFundraisers from "../hooks/use-fundraisers";
 import FundraiserCard from "../components/FundraiserCard"
-
 import './HomePage.css'
 
 function HomePage() {
 
-const {fundraisers} = useFundraisers()
-    // const {fundraisers, isLoading, error} = useFundraisers();
+    const {fundraisers, isLoading, error} = useFundraisers();
 
     
-    // if(isLoading){
-    //     return(<p>loading......</p>);
-    // }
+    if(isLoading){
+        return(<p>loading......</p>);
+    }
 
-    // if(error) {
-    //     return(<p>{error.message}</p>)
-    // }
+    if(error) {
+        return(<p>{error.message}</p>)
+    }
 
     return (
         <div className="homepage">
