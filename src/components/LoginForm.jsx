@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/use-auth.js";
 import postLogin from "../api/post-login.js";
+import "./Form.css"
 
 function LoginForm(props){
     const navigate = useNavigate();
@@ -50,6 +51,9 @@ function LoginForm(props){
     }
 
     return(
+        <div className="form-page">
+        <div className="form-container">
+        <h2>Login</h2>
         <form>
             {error && <p style={{ color: "red" }}>{error}</p>}
             {props.showalert && <p>Please log in to create a new fundraiser</p>}
@@ -75,6 +79,8 @@ function LoginForm(props){
                 Login
             </button>
         </form>
+        </div>
+        </div>
     )
 }
 

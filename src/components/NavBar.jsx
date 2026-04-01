@@ -1,5 +1,6 @@
 import {Link, Outlet} from 'react-router-dom';
 import {useAuth} from "../hooks/use-auth.js"; 
+import "./NavBar.css"
 
 
 function NavBar(){
@@ -14,7 +15,7 @@ function NavBar(){
     return (
         <div>
             <nav>
-                <Link to="/">Home</Link>
+                <Link to="/"><img src="/src/images/countonme_1.jpeg" alt="CountOnMe" /></Link>
                 {auth.token ? 
                 (<div>
                    <Link to="/create-fundraiser">Create Fundraiser</Link>

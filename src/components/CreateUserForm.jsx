@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import postCreateUser from "../api/post-create-user";
+import "./Form.css"
 
 
 function CreateUserForm(){
@@ -39,7 +40,7 @@ function CreateUserForm(){
             credentials.password
             ).then((response)=>{
                 window.localStorage.setItem("token", response.token);
-                navigate("/");
+                navigate("/login");
             }).catch((error)=>{
                 console.error("Error creating user:", error);
             })
@@ -47,6 +48,8 @@ function CreateUserForm(){
     }
 
     return(
+        <div className="form-page">
+        <div className="form-container">
         <form>
             <div>
                 <label htmlFor="username">Username:</label>
@@ -79,6 +82,8 @@ function CreateUserForm(){
                 Register
             </button>
         </form>
+        </div>
+        </div>
     )
 }
 

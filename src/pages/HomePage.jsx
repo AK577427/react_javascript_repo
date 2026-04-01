@@ -1,6 +1,7 @@
 // import { allFundraisers } from "../data";
 import useFundraisers from "../hooks/use-fundraisers";
 import FundraiserCard from "../components/FundraiserCard"
+
 import './HomePage.css'
 
 function HomePage() {
@@ -18,11 +19,16 @@ const {fundraisers} = useFundraisers()
     // }
 
     return (
-        <div id="fundraiser-list">
-            {fundraisers.map((fundraiserData, key)=>{
+        <div className="homepage">
+            <h1>Discover Fundraisers</h1>
+            <div className="fundraiser-container">
+            <div className="fundraiser-list">
+                {fundraisers.map((fundraiserData, key)=>{
                 // return <div key={key}>{fundraiserData.title}</div>;
-                return <FundraiserCard key={key} fundraiserData={fundraiserData}/>
-            })}
+                    return <FundraiserCard key={key} fundraiserData={fundraiserData}/>
+                })}
+            </div>
+            </div>
         </div>
     );
 };

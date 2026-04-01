@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
-import "./FundraiserCard.css"
+// import "./FundraiserCard.css"
+import "../pages/HomePage.css"
 
 function FundraiserCard(props){
     const {fundraiserData}= props;
@@ -8,12 +9,12 @@ function FundraiserCard(props){
     
     return(
         <div className="fundraiser-card">
-            <Link to={fundraiserLink}>
             <img src={fundraiserData.image} alt="image"/>
             <h3>{fundraiserData.title}</h3>
-            <button>Make a Pledge</button>
-            <button>View Details</button>
+            <Link to={fundraiserLink} className="view-btn">
+                View Details 
             </Link>
+
         </div>
        );
 

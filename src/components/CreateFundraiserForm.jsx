@@ -1,6 +1,7 @@
 import {  useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import postCreateFundraiser from "../api/post-create-fundraiser";
+import "./Form.css"
 
 function CreateFundraiserForm(){
     const navigate = useNavigate();
@@ -66,7 +67,8 @@ function CreateFundraiserForm(){
     }
 
     return(
-        <div className="create-fundraiser">
+        <div className="form-page">
+        <div className="form-container">
             <h2>Create Fundraiser</h2>
             {/* {error && <p className="form-error">{error}</p>} */}
             {error && <p style={{ color: "red" }}>{error}</p>}
@@ -107,7 +109,7 @@ function CreateFundraiserForm(){
                     onChange={handleChange}                
                 />
             </div>
-            <div>
+            <div className="form-container-checkbox">
                 <label htmlFor="is_open">Is Open:*</label>
                 <input 
                     type="checkbox" 
@@ -120,6 +122,7 @@ function CreateFundraiserForm(){
                 Create
             </button>
         </form>
+        </div>
         </div>
     )
 }

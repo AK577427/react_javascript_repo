@@ -1,0 +1,92 @@
+
+/* Navbar container */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ceddfa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/* Left side (Home/logo) */
+/* nav a {
+  text-decoration: none;
+  color: #8db0f4;
+  font-weight: 500;
+  margin-right: 20px;
+  transition: color 0.2s ease;
+  border-radius: 10px;
+  margin-left: 10px;
+  background-color: #2563eb;
+} */
+
+
+/* Hover effect */
+nav a:hover {
+   color: #fff;
+  padding: 8px 14px;
+  background-color:#0543f0 ;
+}
+
+/* Group right-side links */
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+/* Special button (Create Fundraiser) */
+/* nav a[href="/create-fundraiser"] { */
+nav a{
+    /* background-color: #ceddfa; */
+    background-color: #2563eb;
+    color: #fff;
+    padding: 8px 14px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-weight: normal;
+  text-decoration: none;
+}
+ nav a [href="/"] {
+    background-color: #ceddfa;
+ }      
+
+
+/* nav a[href="/create-fundraiser"]:hover {
+  background-color: #0543f0;
+  color: #fff;
+} */
+
+
+/* Logout button styling */
+nav a[onClick] {
+  margin-left: 15px;
+  color: #555;
+}
+nav img {
+  height: 100px;
+  width: auto;
+}   
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav div {
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin: 5px 10px 5px 0;
+  }
+}
