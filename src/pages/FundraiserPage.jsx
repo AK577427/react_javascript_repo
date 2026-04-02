@@ -31,22 +31,15 @@ function FundraiserPage() {
     return (
         <div className="card-container">
         <div className="card-content">
-            <img src={fundraiser.img} alt={fundraiser.title} />
-            <h2>{fundraiser.title}</h2>
-            <p>{fundraiser.description}</p>
-            <h3>Created at: {fundraiser.date_created}</h3>
-            <h3>{`Status: ${fundraiser.is_open}`}</h3>
-            <h3>Pledges:</h3>
-            <ul>
-                {fundraiser.pledges.map((pledgeData, key)=>{
-                    return (
-                    <li key={key}>
-                        {`$${pledgeData.amount}.00 from ${pledgeData.supporter}`}
-                    </li>
-                    );
-                })}
-            </ul>
-            {!showPledgeForm ? (
+            <div className="card-left">
+                <h2>{fundraiser.title}</h2>
+                <img src={fundraiser.image} alt={fundraiser.title} />
+                <ul>
+                    <h2>{fundraiser.description}</h2>
+                    <p>Created at: {fundraiser.date_created}</p>
+                    <p>{`Status: ${fundraiser.is_open ? 'Open' : 'Closed'}`}</p>
+                </ul>
+                {!showPledgeForm ? (
                 <button onClick={() => setShowPledgeForm(true)}>Make a Pledge</button>
             ) : (
                 <div className="pledge-form">
@@ -54,6 +47,23 @@ function FundraiserPage() {
                     <button onClick={() => setShowPledgeForm(false)}>Cancel</button>
                 </div>
             )} 
+            </div>
+
+            <div className="card-right">
+                <h3>Pledges:</h3>
+                <ul>
+                    {fundraiser.pledges.map((pledgeData, key)=>{
+                        return (
+                        <li key={key}>
+                            {`$${pledgeData.amount}.00 from ${pledgeData.supporter}`}
+                        </li>
+                        );
+                    })}
+                </ul>
+            </div>
+
+
+            
             {/* <Link to={`/pledge/:${id}`}>
                 <button>Make a Pledge</button>
             </Link> */}

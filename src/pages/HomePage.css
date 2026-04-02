@@ -199,10 +199,11 @@ Grid container for fundraisers */
 
 /* Outer container box */
 .fundraiser-container {
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   background: #5BB5F1;/*#8db0f4;*/
-  padding: 30px;
+  padding: 100px;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
