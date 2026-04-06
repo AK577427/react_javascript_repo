@@ -40,10 +40,7 @@ nav div {
   align-items: center;
 }
 
-/* Special button (Create Fundraiser) */
-/* nav a[href="/create-fundraiser"] { */
 nav a{
-    /* background-color: #ceddfa; */
     background-color: #2563eb;
     color: #fff;
     padding: 8px 14px;
@@ -56,12 +53,7 @@ nav a{
 nav img {
   height: 100px;
   width: 100%;
-  background-color: #ceddfa;
 }   
-/* 
-nav a[href="/"] {
-
-}       */
 
 nav a[href="/"]:hover {
   background-color: #0543f0;
@@ -73,6 +65,16 @@ nav a[href="/"]:hover {
 nav a[onClick] {
   margin-left: 15px;
   color: #555;
+}
+
+nav a.logo {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a.logo:hover {
+  background-color: transparent;
 }
 
 /* Responsive */

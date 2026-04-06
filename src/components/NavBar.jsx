@@ -15,7 +15,7 @@ function NavBar(){
     return (
         <div>
             <nav>
-                <Link to="/"><img src="/src/images/countonme_1.jpeg" alt="CountOnMe" /></Link>
+                <Link to="/" className="logo"><img src="/src/images/countonme_1.jpeg" alt="CountOnMe" /></Link>
                 {auth.token ? 
                 (<div>
                    <Link to="/create-fundraiser">Create Fundraiser</Link>
@@ -29,8 +29,7 @@ function NavBar(){
                         <Link to="/create-fundraiser">Create Fundraiser</Link>
                         <Link to="/contact">Contact Us</Link>
                 </div>
-                )}
-                           
+                )}                    
                 
            </nav>
             <Outlet/>

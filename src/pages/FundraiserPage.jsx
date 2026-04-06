@@ -53,9 +53,9 @@ function FundraiserPage() {
                         <div className="progress-fill" style={{ width: `${percent}%` }} />
                         </div>
                         <p className="progress-percent">{percent}% funded</p>
-        </div>
-    );
-})()}
+                        </div>
+                        );
+                    })()}
                     <p>{`Status: ${fundraiser.is_open ? 'Open' : 'Closed'}`}</p>
                 </ul>
                 {!showPledgeForm ? (
