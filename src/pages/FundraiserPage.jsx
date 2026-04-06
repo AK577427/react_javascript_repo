@@ -61,12 +61,6 @@ function FundraiserPage() {
                     })}
                 </ul>
             </div>
-
-
-            
-            {/* <Link to={`/pledge/:${id}`}>
-                <button>Make a Pledge</button>
-            </Link> */}
         </div>
         </div>
     );
