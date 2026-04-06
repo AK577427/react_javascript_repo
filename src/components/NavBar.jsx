@@ -19,6 +19,7 @@ function NavBar(){
                 {auth.token ? 
                 (<div>
                    <Link to="/create-fundraiser">Create Fundraiser</Link>
+                   <Link to="/contact">Contact Us</Link>
                    <Link to="/" onClick={handleLogout}>Log Out</Link>
                 </div>
                 ) : (
@@ -26,6 +27,7 @@ function NavBar(){
                         <Link to="/login">Login</Link>
                         <Link to="/register">Register</Link> 
                         <Link to="/create-fundraiser">Create Fundraiser</Link>
+                        <Link to="/contact">Contact Us</Link>
                 </div>
                 )}
                            

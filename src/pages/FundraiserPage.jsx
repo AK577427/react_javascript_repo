@@ -36,7 +36,26 @@ function FundraiserPage() {
                 <img src={fundraiser.image} alt={fundraiser.title} />
                 <ul>
                     <h2>{fundraiser.description}</h2>
-                    <p>Created at: {fundraiser.date_created}</p>
+                    <p>Created at: {new Date(fundraiser.date_created).toLocaleDateString('en-AU', {
+                        day: '2-digit',month: '2-digit',year: 'numeric',
+                        hour: '2-digit',minute: '2-digit',hour12: true
+                    })}</p>
+                    <p>Goal: ${fundraiser.goal.toFixed(2)}</p>
+                    {(() => {
+                    const raised = fundraiser.pledges.reduce((sum, p) => sum + p.amount, 0);
+                    const percent = Math.min((raised / fundraiser.goal) * 100, 100).toFixed(1);
+                    return (
+                        <div className="progress-section">
+                        <div className="progress-labels">
+                            <span>${raised.toFixed(2)} raised</span>
+                        </div>
+                        <div className="progress-bar">
+                        <div className="progress-fill" style={{ width: `${percent}%` }} />
+                        </div>
+                        <p className="progress-percent">{percent}% funded</p>
+        </div>
+    );
+})()}
                     <p>{`Status: ${fundraiser.is_open ? 'Open' : 'Closed'}`}</p>
                 </ul>
                 {!showPledgeForm ? (
@@ -55,7 +74,9 @@ function FundraiserPage() {
                     {fundraiser.pledges.map((pledgeData, key)=>{
                         return (
                         <li key={key}>
-                            {`$${pledgeData.amount}.00 from ${pledgeData.supporter}`}
+                            {pledgeData.anonymous
+                            ? `$${pledgeData.amount}.00 from Anonymous`
+                            : `$${pledgeData.amount}.00 from ${pledgeData.supporter}`}
                         </li>
                         );
                     })}

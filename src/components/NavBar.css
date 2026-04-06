@@ -11,7 +11,6 @@ nav {
   top: 0;
   z-index: 1000;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  font-weight: bold;
   font-size: 1.5em;
 }
 
@@ -30,7 +29,7 @@ nav {
 
 /* Hover effect */
 nav a:hover {
-   color: #fff;
+  color: #fff;
   padding: 8px 14px;
   background-color:#0543f0 ;
 }
@@ -53,15 +52,21 @@ nav a{
   font-weight: normal;
   text-decoration: none;
 }
- nav a [href="/"] {
-    background-color: #ceddfa;
- }      
 
+nav img {
+  height: 100px;
+  width: 100%;
+  background-color: #ceddfa;
+}   
+/* 
+nav a[href="/"] {
 
-/* nav a[href="/create-fundraiser"]:hover {
+}       */
+
+nav a[href="/"]:hover {
   background-color: #0543f0;
   color: #fff;
-} */
+}
 
 
 /* Logout button styling */
@@ -69,10 +74,6 @@ nav a[onClick] {
   margin-left: 15px;
   color: #555;
 }
-nav img {
-  height: 100px;
-  width: auto;
-}   
 
 /* Responsive */
 @media (max-width: 768px) {

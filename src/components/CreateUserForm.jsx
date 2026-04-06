@@ -61,6 +61,7 @@ function CreateUserForm(){
     return(
         <div className="form-page">
         <div className="form-container">
+        <h2>Be part of something meaningful—register now.</h2>
         <form>
             {error && <p className="form-error">{error}</p>}            <div>
                 <label htmlFor="username">Username*:</label>
@@ -99,7 +100,7 @@ function CreateUserForm(){
             />
             </div>
             <button type="submit" onClick={handleSubmit}>
-                Register
+                Join
             </button>
         </form>
         </div>

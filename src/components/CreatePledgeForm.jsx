@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import postCreatePledge from "../api/post-create-pledge";
+import "./Form.css"
 
 export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
     const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
     const [pledgeData, setPledgeData] = useState({
             amount: "",
             comment: "",
-            anonymous: "",
+            anonymous: false,
             fundraiser: fundraiserId
     });
 
@@ -97,7 +98,8 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
         <div className="form-container">
         <form>
             <h2 >Make a Pledge</h2>
-                {error && <p className="form-error">{error}</p>}            <div>
+            {error && <p className="form-error">{error}</p>}            
+            <div>
                 <label htmlFor="amount">Amount:*</label>
                 <input
                     type="number"
@@ -158,7 +160,6 @@ export default function CreatePledgeForm({fundraiserId,onPledgeSuccess}){
             <button type="submit" onClick={handleSubmit} disabled={loading}>
                 {loading ? "Creating Pledge..." : "Create Pledge"}
             </button>
-            {/* <button onClick={() => navigate(`/fundraiser/${fundraiserId}`)}>Cancel</button> */}
         </form>
         </div>
     )

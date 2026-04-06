@@ -69,7 +69,7 @@ function CreateFundraiserForm(){
     return(
         <div className="form-page">
         <div className="form-container">
-            <h2>Create Fundraiser</h2>
+            <h2>Launch your fundraiser</h2>
             {error && <p className="form-error">{error}</p>}
         <form>
            <div>

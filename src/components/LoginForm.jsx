@@ -53,7 +53,7 @@ function LoginForm(props){
     return(
         <div className="form-page">
         <div className="form-container">
-        <h2>Login</h2>
+        <h2>Access your account and stay connected.</h2>
         <form>
             {error && <p className="form-error">{error}</p>}            
             {props.showalert && <p>Please log in to create a new fundraiser</p>}

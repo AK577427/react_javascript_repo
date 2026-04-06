@@ -192,7 +192,7 @@ Grid container for fundraisers */
 
 .homepage {
   background-color: #ceddfa;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 40px 20px;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
@@ -230,20 +230,14 @@ Grid container for fundraisers */
   background: #ceddfa;
   border-radius: 40px;
   overflow: hidden;
+  width: 100%;
+  border: 1px solid #0543f0;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
 }
 
 .fundraiser-card:hover {
   transform: translateY(-6px);
-}
-
-/* Image */
-.fundraiser-card{
-    width: 100%;
-    border: 1px solid #0543f0;
-    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8); */
-    box-shadow: 0 6px 18px rgba(5, 67, 240, 0.8);
 }
 
 .fundraiser-card img {
@@ -272,17 +266,17 @@ Grid container for fundraisers */
   color: white;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
   transition: background-color 0.2s ease, transform 0.1s ease;
   margin-bottom: 10px;
+  font-size: large;
 }
 
 /* Hover effect */
 .view-btn:hover {
   background-color: #0543f0;
   color: #fff;
-  font-weight: bold;
 }
 
 /* Content */
