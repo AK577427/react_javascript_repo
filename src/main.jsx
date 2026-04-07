@@ -9,11 +9,11 @@ import FundraiserPage from "./pages/FundraiserPage"
 import NavBar from "./components/NavBar"
 import LoginPage from "./pages/LoginPage";
 import CreateUserPage from "./pages/CreateUserPage"
-import CreateFundraiserForm from "./components/CreateFundraiserForm";
 import CreateFundraiserPage from "./pages/CreateFundraiserPage";  
 import LogoutPage from "./pages/LogoutPage";
-import LoginForm from "./components/LoginForm";
+import ContactPage from "./pages/ContactUsPage.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
+// import PledgePage from "./pages/PledgePage";
 
 // const isLoggedIn = Boolean(window.localStorage.getItem("token"));
 // console.log(isLoggedIn);
@@ -41,6 +41,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/logout", element: <LogoutPage/>
+      },
+      {
+        path: "/contact", element: <ContactPage/>
       },
     ]
   }

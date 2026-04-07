@@ -1,0 +1,298 @@
+/* Content
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  /* gap: 40px; 
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* LEFT SIDE 
+.card-content {
+display: flex;    
+background: #ceddfa;
+  /* border-radius: 16px; 
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  padding: 20px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  max-width: 100%;
+}
+
+.card-top {
+  flex: 1;
+}
+
+.card-details {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Image on left 
+.card-top img {
+  width: 300px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Right side details */
+
+
+/* RIGHT SIDE 
+.pledge-form {
+    flex: 2;
+  max-width: 400px; 
+  min-width: 320px;
+  /* padding: 20px; 
+  border-radius: 16px;
+}
+
+.card-content img {
+  /* width: 100%; 
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* Title 
+.card-content h2 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+/* Description 
+.card-content p {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+
+/* Progress bar container */
+/* .progress-bar {
+  background-color: #e6e6e6;
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+} */
+
+/* Progress fill 
+/* .progress-fill {
+  background-color: #02a95c;
+  height: 100%;
+  border-radius: 20px;
+} */
+
+/* Amount text 
+.amount {
+  font-weight: bold;
+  color: #222;
+  font-size: 14px;
+}
+/* Donate button 
+.card-content button {
+  width: 350px;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: normal;
+}       
+
+.card-content button:hover {
+  background-color:#0543f0;
+  font-weight: bold;
+}
+
+/* Responsive 
+@media (max-width: 768px) {
+  .fundraiser-list {
+    grid-template-columns: 1fr;
+  }
+}
+ */
+
+ /* ── Outer wrapper ── */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #ceddfa;
+}
+
+/* ── Card shell ── */
+.card-content {
+  display: flex;           /* ← two-column flex */
+  flex-direction: row;
+  gap: 32px;
+  background: #5BB5F1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  max-width: 960px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+/* ── LEFT column: image + details ── */
+.card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;            /* prevents flex blowout */
+}
+
+.card-left img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card-left h2 {
+  font-size: 20px;
+  color: #222;
+  margin: 20px 0 8px;
+}
+
+.card-left p {
+  font-size: 14px;
+  color: #222;
+  margin: 20px 0 0;
+}
+
+.card-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.card-left button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: larger;
+}
+
+.card-left button:hover {
+  background-color: #0543f0;
+  font-weight: bold;
+}
+
+/* ── RIGHT column: pledges ── */
+.card-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-right h3 {
+  font-size: 16px;
+  color: #222;
+  margin: 0 0 8px;
+}
+
+.card-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-right ul li {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ── Pledge form (inside left column) ── */
+.pledge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 12px;
+}
+
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #222;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background: #dbe4ff;
+    border-radius: 20px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: #0543f0;
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.progress-percent {
+    font-size: 12px;
+    color: #555;
+    margin: 0;
+}
+
+.form-error{
+    color: red;
+    margin-bottom: 15px;
+    text-align: center;
+ }
+
+/* ── Responsive: stack on small screens ── */
+@media (max-width: 640px) {
+  .card-content {
+    flex-direction: column;
+  }
+}
+

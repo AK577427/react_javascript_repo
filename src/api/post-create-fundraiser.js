@@ -1,16 +1,13 @@
-async function postCreateFundraiser(title,description,goal,image,is_open,token) {
-    const url = `${import.meta.env.VITE_API_URL}/fundraisers/`;
-
-    // const token = window.localStorage.getItem("token");
-    // console.log("Token:", token);  // Check if present
-
+async function postCreateFundraiser(title,description,goal,image,is_open, token){
     if (!token) {
         throw new Error("No authentication token found. Please log in.");
     }
 
       const authHeader = token.startsWith("Token ") || token.startsWith("Bearer ")
     ? token
-    : `Token ${token}`; // or use `Bearer ${token}` if backend wants Bearer
+    : `Token ${token}`;
+    
+    const url = `${import.meta.env.VITE_API_URL}/fundraisers/`;
 
     const response = await fetch(url, {
         method: "POST",

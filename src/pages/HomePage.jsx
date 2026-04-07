@@ -5,24 +5,28 @@ import './HomePage.css'
 
 function HomePage() {
 
-const {fundraisers} = useFundraisers()
-    // const {fundraisers, isLoading, error} = useFundraisers();
+    const {fundraisers, isLoading, error} = useFundraisers();
 
     
-    // if(isLoading){
-    //     return(<p>loading......</p>);
-    // }
+    if(isLoading){
+        return(<p>loading......</p>);
+    }
 
-    // if(error) {
-    //     return(<p>{error.message}</p>)
-    // }
+    if(error) {
+        return(<p>{error.message}</p>)
+    }
 
     return (
-        <div id="fundraiser-list">
-            {fundraisers.map((fundraiserData, key)=>{
+        <div className="homepage">
+            <h1>Discover Fundraisers</h1>
+            <div className="fundraiser-container">
+            <div className="fundraiser-list">
+                {fundraisers.map((fundraiserData, key)=>{
                 // return <div key={key}>{fundraiserData.title}</div>;
-                return <FundraiserCard key={key} fundraiserData={fundraiserData}/>
-            })}
+                    return <FundraiserCard key={key} fundraiserData={fundraiserData}/>
+                })}
+            </div>
+            </div>
         </div>
     );
 };

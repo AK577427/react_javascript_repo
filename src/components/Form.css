@@ -1,0 +1,89 @@
+.form-page {
+  display: flex;
+  background-color: #ceddfa;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.form-container {
+  background: #5BB5F1;/*#8db0f4;*/
+  padding: 30px;
+  border-radius: 16px;
+  width: 350px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0543f0;
+}
+
+.form-container input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.form-container-checkbox{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-container textarea {
+  width: 100%;
+  min-height: 100px;   /* increase height */
+  padding: 10px;
+  border-radius: 8px;
+  resize: vertical;    /* user can drag to resize */
+}
+
+.form-error{
+    color: red;
+    margin-bottom: 15px;
+    text-align: center;
+ }
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: large;
+  margin: 10px 0;
+}       
+
+.form-container button:hover {
+  background-color:#0543f0;
+  font-weight: bold;
+}
+/* 
+.pledge-form {
+  /* max-width: 800px; 
+  flex: 1;
+  background: #f4f7ff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+} */
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card-content button {
+    width: 100%;
+  }
+}
