@@ -16,9 +16,9 @@ function CreateUserForm(){
     })
 
     
-    useEffect(() => {
-    const storedToken = window.localStorage.getItem("token");
-    }, []);
+    // useEffect(() => {
+    // const storedToken = window.localStorage.getItem("token");
+    // }, []);
 
     const handleChange = (event)=>{
         const {id, value} = event.target;
