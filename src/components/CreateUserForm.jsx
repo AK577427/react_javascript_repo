@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import postCreateUser from "../api/post-create-user";
 import "./Form.css"
@@ -6,7 +6,6 @@ import "./Form.css"
 
 function CreateUserForm(){
     const navigate = useNavigate();
-    const [token, setToken] = useState(null);
     const [error, setError] = useState(null);
 
     const [credentials, setCredentials] = useState({
@@ -17,10 +16,8 @@ function CreateUserForm(){
     })
 
     
-    useState(() => {
-    // useEffect(() => {
+    useEffect(() => {
     const storedToken = window.localStorage.getItem("token");
-    setToken(storedToken);
     }, []);
 
     const handleChange = (event)=>{
